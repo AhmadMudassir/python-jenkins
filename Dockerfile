@@ -2,12 +2,13 @@ FROM python:3.9-slim-buster
 
 WORKDIR /app
 
-COPY requirements.txt .
+
+COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt && \
     rm -rf ~/.cache/pip
-    
-COPY . .
+ 
+RUN pytest test_app.py    
 
 EXPOSE 3001
 
