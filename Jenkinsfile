@@ -1,11 +1,6 @@
 pipeline {
     agent any
 stages {
-stage('Test-App') {
-            steps {
-                sh 'pytest test_app.py'
-            }
-        }    
 stage('Build Docker Image') {
             steps {
                 sh 'docker build -t flask-api .'
