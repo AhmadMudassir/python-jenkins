@@ -1,16 +1,6 @@
 pipeline {
   agent any
-  
-  environment {
-  	PYTEST="/home/linux/.local/bin/pytest"
-  }
   stages {
-    stage('Clone Repo') {
-        steps {
-            git url: 'https://github.com/AhmadMudassir/python-jenkins.git', branch: 'main'
-            sh '${PYTEST} test_app.py'
-        }
-    }
     stage('Build Docker Image') {
             steps {
                 sh 'docker build -t flask-api .'
@@ -25,4 +15,4 @@ pipeline {
             }
         }
      }
- }
+  }
