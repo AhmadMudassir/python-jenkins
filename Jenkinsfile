@@ -3,6 +3,7 @@ pipeline {
 stages {
 stage('Test-App') {
             steps {
+                withEnv(["PYTHONPATH=$WORKSPACE:$PYTHONPATH"])
                 sh 'pytest test_app.py'
             }
         }    
